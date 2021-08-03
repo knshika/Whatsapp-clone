@@ -4,7 +4,6 @@ import DonutLargeIcon from "@material-ui/icons/DonutLarge";
 import ChatIcon from "@material-ui/icons/Chat";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import SearchIcon from "@material-ui/icons/Search";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 import "../stylings/Sidebar.css";
 import SidebarChat from "./SidebarChat";
@@ -13,7 +12,7 @@ import { useStateValue } from "../StateProvider";
 
 function Sidebar() {
   const [rooms, setRooms] = useState([]);
-  const [{user},dispatch]=useStateValue();
+  const [{user}]=useStateValue();
   
   useEffect(() => {
     const unsubscribe = db.collection("chatRooms").onSnapshot((snapshot) =>

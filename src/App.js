@@ -6,7 +6,7 @@ import Sidebar from "./components/Sidebar";
 import { useStateValue } from "./StateProvider";
 
 function App() {
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user }] = useStateValue();
 
   return (
     //BEM naming convention

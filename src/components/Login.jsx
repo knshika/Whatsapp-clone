@@ -7,7 +7,7 @@ import "../stylings/Login.css";
 import whatsappImg from "../stylings/WhatsApp.svg.png";
 
 function Login() {
-  const [{}, dispatch] = useStateValue();
+  const [,dispatch] = useStateValue();
 
   const signIn = () => {
     auth

@@ -10,7 +10,6 @@ import SendIcon from "@material-ui/icons/Send";
 import "../stylings/Chat.css";
 import { useParams } from "react-router-dom";
 import db from "../firebase";
-import userEvent from "@testing-library/user-event";
 import { useStateValue } from "../StateProvider";
 import firebase from "firebase";
 
@@ -21,7 +20,7 @@ function Chat() {
   const { roomId } = useParams();
   const [roomName, setRoomName] = useState("");
   const [messages, setMessages] = useState([]);
-  const [{user},dispatch] = useStateValue();
+  const [{user}] = useStateValue();
 
 
   useEffect(() => {
