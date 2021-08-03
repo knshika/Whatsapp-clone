@@ -13,7 +13,8 @@ function App() {
     <div className="app">
       {!user ? (
         <Login />
-      ) : (
+      ) : 
+      (
         <div className="app_body">
           <Router>
             <Sidebar />

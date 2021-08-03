@@ -7,6 +7,22 @@ import "../stylings/SidebarChat.css";
 
 function SidebarChat({ addNewChat, id, name }) {
   const [picId, setPicId] = useState("");
+
+  const [messages, setMessages] = useState("")
+
+  useEffect(() => {
+    if(id){
+      db.collection("chatRooms").doc(id).collection("messages").orderBy("timestamp","desc")
+      .onSnapshot(snapshot => (
+        setMessages(snapshot.docs.map((doc)=>
+        doc.data()
+        ))
+      ))
+    }
+  
+  }, [id])
+
+
   useEffect(() => {
     setPicId(Math.floor(Math.random() * 69));
   }, []);
@@ -27,7 +43,9 @@ function SidebarChat({ addNewChat, id, name }) {
         <Avatar src={`https://i.pravatar.cc/150?img=${picId}`} />
         <div className="chat_info">
           <h3>{name}</h3>
-          <p>Last message..</p>
+          <p>{
+              messages[0]?.message
+          }</p>
         </div>
       </div>
     </Link>

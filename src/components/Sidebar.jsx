@@ -9,10 +9,12 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import "../stylings/Sidebar.css";
 import SidebarChat from "./SidebarChat";
 import db from "../firebase";
+import { useStateValue } from "../StateProvider";
 
 function Sidebar() {
   const [rooms, setRooms] = useState([]);
-
+  const [{user},dispatch]=useStateValue();
+  
   useEffect(() => {
     const unsubscribe = db.collection("chatRooms").onSnapshot((snapshot) =>
       setRooms(
@@ -30,7 +32,7 @@ function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebar_header">
-        <Avatar />
+        <Avatar src={user?.photoURL}/>
         <div className="header_right">
           <IconButton>
             <DonutLargeIcon />

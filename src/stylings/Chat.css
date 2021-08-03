@@ -54,7 +54,7 @@
   position: relative;
   background-color: white;
   padding: 6px;
-
+  margin-bottom: 20px;
   border-radius: 5px;
   font-weight: 400;
   width: fit-content;
@@ -63,8 +63,10 @@
 .chat_msg_me {
   margin-left: auto;
 
-  background-color: rgb(122, 228, 125);
+  background-color: rgb(196, 228, 122);
 }
+
+
 
 .chat_user {
   position: absolute;
