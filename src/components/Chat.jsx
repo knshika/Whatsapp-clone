@@ -9,12 +9,25 @@ import MicIcon from "@material-ui/icons/Mic";
 import SendIcon from "@material-ui/icons/Send";
 import "../stylings/Chat.css";
 import { useParams } from "react-router-dom";
+import db from "../firebase";
 
 function Chat() {
   const [input, setInput] = useState("");
   const [picId, setPicId] = useState("");
 
   const { roomId } = useParams();
+  const [roomName, setRoomName] = useState("");
+
+  useEffect(() => {
+    if (roomId) {
+      db.collection("chatRooms")
+        .doc(roomId)
+        .onSnapshot((snapshot) => setRoomName(snapshot.data().name));
+    }
+    // return () => {
+    //   cleanup
+    // }
+  }, [roomId]);
 
   useEffect(() => {
     setPicId(Math.floor(Math.random() * 69));
@@ -30,7 +43,7 @@ function Chat() {
       <div className="chat_bar">
         <Avatar src={`https://i.pravatar.cc/150?img=${picId}`} />
         <div className="chat_header_info">
-          <h3>UserName</h3>
+          <h3>{roomName}</h3>
           <p> Last seen at ..</p>
         </div>
         <div className="chat_bar_icons">
