@@ -2,7 +2,7 @@ import firebase from "firebase";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAb7CH7naheTsZ009Xi4hqpkDcexrw4cqw",
-  authDomain: "whatsapp-clone-454a7.firebaseapp.com",
+  authDomain: "whatsapp-clone-454a7.firebaseapp.com" || "https://whatsapp-lite-knshika.netlify.app",
   projectId: "whatsapp-clone-454a7",
   storageBucket: "whatsapp-clone-454a7.appspot.com",
   messagingSenderId: "521964776825",
